@@ -22,6 +22,7 @@ public class Web3App {
    private static final String walletPath = System.getenv().getOrDefault("WEB3J_WALLET_PATH", "<wallet_path>");
 
    public static void main(String[] args) throws Exception {
+       MeowMix.meow(nodeUrl, walletPath, walletPassword);
        // helloWorld();
    }
 
