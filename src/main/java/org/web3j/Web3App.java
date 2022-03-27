@@ -22,13 +22,17 @@ public class Web3App {
    private static final String walletPath = System.getenv().getOrDefault("WEB3J_WALLET_PATH", "<wallet_path>");
 
    public static void main(String[] args) throws Exception {
-        Credentials credentials = WalletUtils.loadCredentials(walletPassword, walletPath);
-        Web3j web3j = Web3j.build(new HttpService(nodeUrl));
-        System.out.println("Deploying HelloWorld contract ...");
-        // HelloWorld helloWorld = HelloWorld.deploy(web3j, credentials, new DefaultGasProvider(), "Hello Blockchain World!").send();
-        HelloWorld helloWorld = HelloWorld.deploy(web3j, credentials, new GasProvider(), "Hello Blockchain World!").send();
+       // helloWorld();
+   }
+
+   public static void helloWorld() throws Exception {
+       Credentials credentials = WalletUtils.loadCredentials(walletPassword, walletPath);
+       Web3j web3j = Web3j.build(new HttpService(nodeUrl));
+       System.out.println("Deploying HelloWorld contract ...");
+       // HelloWorld helloWorld = HelloWorld.deploy(web3j, credentials, new DefaultGasProvider(), "Hello Blockchain World!").send();
+       HelloWorld helloWorld = HelloWorld.deploy(web3j, credentials, new GasProvider(), "Hello Blockchain World!").send();
        System.out.println("Contract address: " + helloWorld.getContractAddress());
-        System.out.println("Greeting method result: " + helloWorld.greeting().send());
+       System.out.println("Greeting method result: " + helloWorld.greeting().send());
    }
 
    public static class GasProvider extends StaticGasProvider {
