@@ -1416,11 +1416,11 @@ contract ClockAuction is Pausable, ClockAuctionBase {
     {
         // Sanity check that no inputs overflow how many bits we've allocated
         // to store them in the auction struct.
-        require(_startingPrice == uint256(uint128(_startingPrice)));
-        require(_endingPrice == uint256(uint128(_endingPrice)));
-        require(_duration == uint256(uint64(_duration)));
+        require(_startingPrice == uint256(uint128(_startingPrice)), "bits don't fit");
+        require(_endingPrice == uint256(uint128(_endingPrice)), "bits don't fit");
+        require(_duration == uint256(uint64(_duration)), "bits don't fit");
 
-        require(_owns(msg.sender, _tokenId));
+        require(_owns(msg.sender, _tokenId), "must own the token");
         _escrow(msg.sender, _tokenId);
         Auction memory auction = Auction(
                                          _seller,

@@ -106,19 +106,17 @@ public class MeowMix {
             if (!kittyOwner.equals(sellerCreds.getAddress())) {
                 throw new RuntimeException("Seller doesn't own the kitty.");
             }
-            /*
-            // var sellerAuction = KittyCore.load(CONTRACT_ADDRESS, web3j, sellerCreds, gasProvider);
-            var sellerAuction = SaleClockAuction.load(saleAuction.getContractAddress(), web3j, sellerCreds, gasProvider);
+            // var sellerAuction = SaleClockAuction.load(saleAuction.getContractAddress(), web3j, sellerCreds, gasProvider);
             var buyerAuction =  SaleClockAuction.load(saleAuction.getContractAddress(), web3j, buyerCreds, gasProvider);
+            var sellerAuction = KittyCore.load(CONTRACT_ADDRESS, web3j, sellerCreds, gasProvider);
+            // var buyerAuction =  KittyCore.load(CONTRACT_ADDRESS, web3j, buyerCreds, gasProvider);
             System.out.println("\n~~~~~>    Starting auction...\n");
-            sellerAuction.createAuction(newCatId, BigInteger.valueOf(12), BigInteger.valueOf(20), BigInteger.valueOf(5), sellerCreds.getAddress()).send();
+            sellerAuction.createSaleAuction(newCatId, BigInteger.valueOf(20), BigInteger.valueOf(0), BigInteger.valueOf(50000)).send();
             System.out.println("\n~~~~~~>   Auction Started\n");
-            var bidTx = buyerAuction.bid(newCatId, BigInteger.valueOf(17)).send();
-            buyerAuction.bid(newCatId, BigInteger.valueOf(17));
+            var bidTx = buyerAuction.bid(newCatId, BigInteger.valueOf(20)).send();
             System.out.println("Bid sent. Waiting for auction to end: ");
-            Thread.sleep(5000);
+            Thread.sleep(100);
             System.out.println("Sale is over. Cat id: " + newCatId + " is now owned by: " + adminKittyCore.ownerOf(newCatId).send());
-             */
         }
     }
 }
