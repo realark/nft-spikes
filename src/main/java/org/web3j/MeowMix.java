@@ -56,13 +56,13 @@ public class MeowMix {
         { // auction time
             var sellerAuction = KittyMinting.load(CONTRACT_ADDRESS, web3j, adminCreds, gasProvider);
             var buyerAuction =  KittyAuction.load(CONTRACT_ADDRESS, web3j, buyerCreds, gasProvider);
-            System.out.println("\n~~~~~>    Starting auction...\n");
-            sellerAuction.createSaleAuction(newCatId, BigInteger.valueOf(12), BigInteger.valueOf(20), BigInteger.valueOf(5)).send();
-            System.out.println("\n~~~~~~>   Auction Started\n");
+            // System.out.println("\n~~~~~>    Starting auction...\n");
+            // sellerAuction.createSaleAuction(newCatId, BigInteger.valueOf(12), BigInteger.valueOf(20), BigInteger.valueOf(5)).send();
+            // System.out.println("\n~~~~~~>   Auction Started\n");
             // var bidTx = buyerAuction.bid(newCatId, BigInteger.valueOf(17)).send();
             // System.out.println("Bid sent. Waiting for auction to end: ");
-            Thread.sleep(5000);
-            System.out.println("Sale is over. Cat id: " + newCatId + " is now owned by: " + adminKittyCore.ownerOf(newCatId).send());
+            // Thread.sleep(5000);
+            // System.out.println("Sale is over. Cat id: " + newCatId + " is now owned by: " + adminKittyCore.ownerOf(newCatId).send());
         }
     }
 }
